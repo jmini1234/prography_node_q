@@ -5,9 +5,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var client = mysql.createConnection({
-	host : 'localhost',
+   host : 'ec2-54-180-98-142.ap-northeast-2.compute.amazonaws.com:3306',
    user : 'root',
-   password : 'sjm1771033',
+   password : 'MyNewPassword',
    database : 'Company'
 });
 
@@ -16,13 +16,13 @@ app.use(bodyParser.urlencoded({
 	extended:false
 }));
 
-app.listen(2000,function () {
-	console.log('server running at http://127.0.0.1:2000');
+app.listen(3000,function () {
+	console.log('server running at http://127.0.0.1:3000');
 });
 
 app.get('/', function(request,response) { 
 	fs.readFile('list.html','utf8', function(error,data){
-		client.query('SELECT * FROM products', function(error,results){
+		client.query('SELECT * FROM Products', function(error,results){
 			response.send(ejs.render(data,{
 				data:results
 			}));
@@ -32,7 +32,7 @@ app.get('/', function(request,response) {
 
 
 app.get('/delete/:id', function(request,response) {
-      client.query('DELETE FROM products WHERE id=?', [request.param('id')], function () {
+      client.query('DELETE FROM Products WHERE id=?', [request.param('id')], function () {
       response.redirect('/');
     });
  });
@@ -43,7 +43,7 @@ app.get('/insert', function(request,response) {
 });
 app.post('/insert', function(request,response) { 
     var body = request.body;
-    client.query('INSERT INTO products (name, modelnumber, series) VALUES (?, ?, ?)', [
+    client.query('INSERT INTO Products (name, modelnumber, series) VALUES (?, ?, ?)', [
         body.name, body.modelnumber, body.series
     ], function () {
         response.redirect('/');
@@ -52,7 +52,7 @@ app.post('/insert', function(request,response) {
 
 app.get('/edit/:id', function(request,response) { 
     fs.readFile('edit.html', 'utf8', function (error, data) {
-        client.query('SELECT * FROM products WHERE id = ?', [
+        client.query('SELECT * FROM Products WHERE id = ?', [
             request.params.id
         ], function (error, result) {
             response.send(ejs.render(data, {
@@ -67,7 +67,7 @@ app.get('/edit/:id', function(request,response) {
 
 app.post('/edit/:id', function(request,response) {
     var body = request.body
-    client.query('UPDATE products SET name=?, modelnumber=?, series=? WHERE id=?', [
+    client.query('UPDATE Products SET name=?, modelnumber=?, series=? WHERE id=?', [
         body.name, body.modelnumber, body.series, request.params.id
     ], function () {
         response.redirect('/');
