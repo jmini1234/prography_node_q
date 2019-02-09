@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var client = mysql.createConnection({
    host : 'ec2-54-180-98-142.ap-northeast-2.compute.amazonaws.com:3306',
    user : 'root',
-   password : 'MyNewPassword',
+   password : 'sjm1771033',
    database : 'Company'
 });
 
