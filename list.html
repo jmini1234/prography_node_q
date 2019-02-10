@@ -5,9 +5,12 @@
 	<title>List Page</title>
 </head>
 <body>
-	<h1 align="center">BOARD</h1>
+	<h1 align="center";>BOARD</h1>
+	<hr />
+	<h6 align="right">node quest 심정민</h6>
 	<hr />
 	<table class="table table-hover">
+	   <thead class="table-primary">
 		<tr>
 			<th>DELETE</th>
 			<th>EDIT</th>
@@ -16,6 +19,7 @@
 			<th>Model Number</th>
 			<th>Series</th>
 		</tr>
+	   </thead>
 		<% data.forEach(function(item,index){ %>
 		<tr>
 			<td><a href="/delete/<%= item.id %>">DELETE</a></td>
@@ -27,7 +31,7 @@
 		</tr>
 		<% }); %>
 	</table>
-	<a href="/insert" class="btn btn-outline-primary">INSERT DATA</a>
+	<a href="/insert" class="btn btn-outline-primary" >INSERT DATA</a>
 </body>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

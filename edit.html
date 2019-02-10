@@ -4,7 +4,7 @@
 	<title>Edit Page</title>
 </head>
 <body>
-	<h1>Edit Page</h1>
+	<h1 align="center";>Edit Page</h1>
 	<hr />
 	<form method="post">
 		<fieldset>
@@ -12,22 +12,22 @@
 			<table class="table table-hover">
 				<tr>
 					<td><label>Id</label></td>
-					<td><input type="text" name="id" value="<%= data.id %>"disabled/></td>
+					<td><input type="text"class="form-control" name="id" value="<%= data.id %>"disabled/></td>
 				</tr>
 				<tr>
 					<td><label>Name</label></td>
-					<td><input type="text" name="name" value="<%= data.name %>"/></td>
+					<td><input type="text"class="form-control" name="name" value="<%= data.name %>"/></td>
 				</tr>
 				<tr>
 					<td><label>Model Number</label></td>
-					<td><input type="text" name="modelnumber" value="<%= data.modelnumber %>"/></td>
+					<td><input type="text"class="form-control" name="modelnumber" value="<%= data.modelnumber %>"/></td>
 				</tr>
 				<tr>
 					<td><label>Series</label></td>
-					<td><input type="text" name="series" value="<%= data.series %>" /></td>
+					<td><input type="text"class="form-control" name="series" value="<%= data.series %>" /></td>
 				</tr>
 			</table>
-			<input type="submit" value="Submit" /> 
+			<input type="submit" class="btn btn-outline-primary" value="Submit" /> 
 		</fieldset>
 	</form>
 </body>
